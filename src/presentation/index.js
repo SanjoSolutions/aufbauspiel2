@@ -9,8 +9,11 @@ import {
   WebGLRenderer,
 } from 'three'
 import { MapControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { Building, Building1, Building2, Position } from '../domain/core.js'
+import { Building } from '../domain/Building.js'
+import { Building1 } from '../domain/Building1.js'
+import { Building2 } from '../domain/Building2.js'
 import { Game } from '../domain/Game.js'
+import { Position } from '../domain/Position.js'
 import { deserializeBuildings, determineBuildingClass, serializeBuildings } from '../domain/serialization.js'
 
 const buildingTypeToColor = new Map([

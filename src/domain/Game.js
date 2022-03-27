@@ -1,12 +1,6 @@
-import { Vector, Yield } from './core.js'
-
-export const resources = [
-  'Ressource 1',
-]
-
-export function createVector() {
-  return new Vector(new Array(resources.length).fill(0))
-}
+import { createVector } from './createVector.js'
+import { Vector } from './Vector.js'
+import { Yield } from './Yield.js'
 
 export class Game {
   constructor() {

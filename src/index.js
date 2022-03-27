@@ -1,5 +1,5 @@
 import './presentation/index.js'
 export { deserializeBuildings } from './domain/serialization.js'
 export { serializeBuildings } from './domain/serialization.js'
-export { createVector } from './domain/Game.js'
-export { resources } from './domain/Game.js'
+export { resources } from './domain/resources.js'
+export { createVector } from './domain/createVector.js'

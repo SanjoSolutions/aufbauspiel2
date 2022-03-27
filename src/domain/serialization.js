@@ -1,4 +1,5 @@
-import { Building1, Building2 } from './core.js'
+import { Building1 } from './Building1.js'
+import { Building2 } from './Building2.js'
 
 export function serializeBuildings(buildings) {
   const data = buildings.map(building => ({
