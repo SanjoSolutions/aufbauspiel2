@@ -9,6 +9,7 @@ import {
   Raycaster,
 } from 'three'
 import { MapControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { Vector, Yield } from './core.js'
 
 const scene = new Scene()
 
@@ -159,3 +160,25 @@ function onPointerDown(event) {
 }
 
 animate()
+
+let lastUpdate = new Date()
+setInterval(onTick, 1000)
+
+const ressourcen = [
+  'Ressource 1',
+]
+
+function createVector() {
+  return new Vector(new Array(ressourcen.length).fill(0))
+}
+
+let inventory = createVector()
+const totalYield = new Yield(new Vector([1]))
+
+function onTick() {
+  const now = new Date()
+  const timePassed = now - lastUpdate
+  inventory = inventory.add(totalYield.values.multiplyWithScalar(timePassed / 1000))
+  console.log(inventory.values)
+  lastUpdate = now
+}
