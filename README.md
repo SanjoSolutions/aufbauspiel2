@@ -1,5 +1,7 @@
 This work is devoted to God.
 
+[Online version](https://sanjosolutions.github.io/aufbauspiel2/)
+
 ## Development
 
 ```sh
