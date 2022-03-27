@@ -73,7 +73,7 @@ window.addEventListener('resize', onResize)
 
 document.addEventListener('pointermove', onPointerMove)
 
-function determineMousePositionOnPlane() {
+function determineMousePositionOnPlane(event) {
   const mouse = new Vector2()
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
@@ -90,7 +90,7 @@ function determineMousePositionOnPlane() {
 
 function onPointerMove() {
   if (selectedObject) {
-    const position = determineMousePositionOnPlane()
+    const position = determineMousePositionOnPlane(event)
     if (position) {
       selectedObject.position.x = Math.round(position.x)
       selectedObject.position.z = Math.round(position.z)
@@ -146,9 +146,9 @@ function createHouse(color) {
 
 document.addEventListener('pointerdown', onPointerDown)
 
-function onPointerDown() {
+function onPointerDown(event) {
   if (hasSelectedHouse) {
-    const position = determineMousePositionOnPlane()
+    const position = determineMousePositionOnPlane(event)
     if (position) {
       unselectHouse()
       selectedObject = box
