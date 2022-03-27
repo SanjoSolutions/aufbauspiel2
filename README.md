@@ -5,3 +5,7 @@ This work is devoted to God.
 ```sh
 npm run build:watch
 ```
+
+## Architecture
+
+[Layered architecture](https://martinfowler.com/bliki/PresentationDomainDataLayering.html)
