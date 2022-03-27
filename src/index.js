@@ -53,6 +53,9 @@ const material = new MeshBasicMaterial({ color: '#ffedb9' })
 const plane = new Mesh(geometry, material)
 scene.add(plane)
 
+const buildings = deserializeBuildings(localStorage.getItem('buildings') || '[]')
+buildings.forEach(building => scene.add(building))
+
 function createBox() {
   const geometry = new BoxGeometry(1, 0.01, 1)
   const material = new MeshBasicMaterial({ color: 'gray' })
@@ -151,12 +154,37 @@ function onPointerDown(event) {
   if (hasSelectedHouse) {
     const position = determineMousePositionOnPlane(event)
     if (position) {
+      buildings.push(selectedObject)
+      localStorage.setItem('buildings', serializeBuildings(buildings))
       unselectHouse()
       selectedObject = box
       scene.add(box)
       hasSelectedHouse = false
     }
   }
+}
+
+function serializeBuildings(buildings) {
+  const dataToSave = buildings.map(building => ({
+    position: {
+      x: building.position.x,
+      z: building.position.z
+    },
+    material: {
+      color: building.material.color.getStyle()
+    }
+  }))
+  return JSON.stringify(dataToSave)
+}
+
+function deserializeBuildings(data) {
+  const data2 = JSON.parse(data)
+  return data2.map(buildingData => {
+    const building = createHouse(buildingData.material.color)
+    building.position.x = buildingData.position.x
+    building.position.z = buildingData.position.z
+    return building
+  })
 }
 
 animate()
@@ -179,6 +207,6 @@ function onTick() {
   const now = new Date()
   const timePassed = now - lastUpdate
   inventory = inventory.add(totalYield.values.multiplyWithScalar(timePassed / 1000))
-  console.log(inventory.values)
+  // console.log(inventory.values)
   lastUpdate = now
 }
