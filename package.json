@@ -6,7 +6,7 @@
     "build:watch": "webpack serve --open --config node_modules/@sanjo/webpack/webpack.dev.js"
   },
   "devDependencies": {
-    "@sanjo/webpack": "^1.2.2",
+    "@sanjo/webpack": "^2.0.1",
     "@types/three": "^0.138.0",
     "@webpack-cli/serve": "^1.6.1",
     "jest": "^27.5.1",
