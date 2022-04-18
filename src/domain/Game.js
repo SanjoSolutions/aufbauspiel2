@@ -34,7 +34,7 @@ export class Game {
    * @param {number} timePassed - Time passed since last update in milliseconds.
    */
   updateInventory(timePassed) {
-    this.inventory = this.inventory.add(this.totalYield.values.multiplyWithScalar(timePassed / 1000))
+    this.inventory.add(this.totalYield.values.multiplyWithScalar(timePassed / 1000))
   }
 
   /**
