@@ -194,7 +194,7 @@ function onPointerDown(event) {
   if (hasSelectedBuilding) {
     const position = determineMousePositionOnPlane(event)
     if (position) {
-      game.buildings.push(selectedBuilding)
+      game.buildBuilding(selectedBuilding)
       buildingRenderingObjects.push(selectedRenderingObject)
       localStorage.setItem('buildings', serializeBuildings(game.buildings))
       unselectBuilding()
